@@ -1,5 +1,14 @@
 # WAP (Weather Access Presentation)
 
+#REQUIREMENTS
+nodejs =  > 12
+yarn   =  > 1.7
+
+
+# HOW TO INSTALL - 4/21/2021
+go to projects/portal
+yarn install
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
 ## Development server
