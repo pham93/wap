@@ -6,8 +6,14 @@ yarn   =  > 1.7
 
 
 # HOW TO INSTALL - 4/21/2021
+in app
+run `yarn install --frozen-lockfile`
 go to projects/portal
-yarn install
+run `yarn install --frozen-lockfile`
+run `yarn build --prod`
+
+go back to app
+run `yarn start`
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.2.6.
 
