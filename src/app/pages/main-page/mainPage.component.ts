@@ -30,7 +30,7 @@ export class MainPageComponent {
   }
 
   ngAfterViewInit() {
-    // this.theme.changeTheme('dark');
+    this.theme.changeTheme('dark');
   }
 
   change(a: any) {}
