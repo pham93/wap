@@ -1,1 +1,18 @@
-/* You can add global styles to this file, and also import other style files */
+// themes - our custom or/and out of the box themes
+@import "themes";
+
+// framework component themes (styles tied to theme variables)
+@import "~@nebular/theme/styles/globals";
+
+// install the framework and custom global styles
+@include nb-install() {
+  // framework global styles
+  @include nb-theme-global();
+}
+
+html,
+body {
+  // margin: 0;
+  // height: 100%;
+  // width: 100%;
+}

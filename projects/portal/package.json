@@ -1,0 +1,23 @@
+{
+  "name": "portal",
+  "version": "0.0.1",
+  "scripts": {
+    "build": "ng build portal",
+    "build:prod": "ng build portal --prod",
+    "lint": "ng lint portal",
+    "test": "ng test portal"
+  },
+  "peerDependencies": {
+    "@angular/cdk": "^11.2.6",
+    "@angular/common": "^11.2.7",
+    "@angular/core": "^11.2.7",
+    "angular-gridster2": "^11.1.5",
+    "rxjs": "~6.6.0"
+  },
+  "dependencies": {
+    "tslib": "^2.0.0"
+  },
+  "devDependencies": {
+    "@types/uuid": "^8.3.0"
+  }
+}

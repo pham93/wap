@@ -1,0 +1,14 @@
+<gridster [options]="config" [style.background]="'transparent'">
+  <gridster-item
+    [style.background]="'transparent'"
+    [item]="item"
+    *ngFor="let item of dashboard trackBy:trackBy"
+  >
+    <!-- your content here -->
+    <portal-container
+      [item]="item"
+      [adapter]="adapter"
+      [portalManager]="portalManager"
+    ></portal-container>
+  </gridster-item>
+</gridster>
