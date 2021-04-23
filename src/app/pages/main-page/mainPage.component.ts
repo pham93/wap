@@ -20,18 +20,17 @@ export class MainPageComponent {
 
   editMode = true;
 
-  dashboard: Array<GridsterItemWidget> = [
-    { x: 0, y: 0, cols: 4, rows: 2, widget: WidgetMapperService.TEXT_WIDGET },
-    { x: 5, y: 0, cols: 5, rows: 1, widget: WidgetMapperService.EMPTY_WIDGET }
-  ];
+  dashboard: Array<GridsterItemWidget> = [];
 
   ngOnInit() {
-    console.log('hello world');
+    this.dashboard = JSON.parse(localStorage.getItem('myDashboard') || '[]');
   }
 
   ngAfterViewInit() {
-    // this.theme.changeTheme('dark');
+    this.theme.changeTheme('dark');
   }
 
-  change(a: any) {}
+  change(a: any) {
+    localStorage.setItem('myDashboard', JSON.stringify(a));
+  }
 }
