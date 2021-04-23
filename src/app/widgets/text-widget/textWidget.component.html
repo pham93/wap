@@ -1,12 +1,12 @@
   <nb-card>
     <nb-card-header>
-      <button nbButton ghost status="danger">
+      <button nbButton ghost status="danger"  (click)="toggleExpand()">
         <nb-icon icon="expand-outline"></nb-icon>
       </button>
       <button nbButton ghost status="danger" class="drag-handler">
         <nb-icon icon="move-outline"></nb-icon>
       </button>
-      <button nbButton ghost status="danger">
+      <button nbButton ghost status="danger" (click)="remove()">
         <nb-icon icon="close-outline"></nb-icon>
       </button>
     </nb-card-header>
