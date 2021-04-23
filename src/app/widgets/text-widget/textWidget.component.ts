@@ -24,15 +24,11 @@ export class TextWidgetComponent {
     });
   }
 
-  remove($event: MouseEvent) {
-    $event.preventDefault();
-    $event.stopPropagation();
+  remove() {
     this.portalManager.deleteWidget(this.id);
   }
 
-  toggleExpand($event: MouseEvent) {
-    $event.preventDefault();
-    $event.stopPropagation();
+  toggleExpand() {
     this.portalManager.toggleExpand(this.id);
   }
 
