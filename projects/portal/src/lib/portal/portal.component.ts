@@ -175,6 +175,7 @@ export class PortalComponent implements OnInit, OnDestroy {
     if (idx >= 0) {
       this.dashboard.splice(idx, 1);
     }
+    this.onDashboardChange.emit(this.dashboard);
   }
 
   addItem() {
