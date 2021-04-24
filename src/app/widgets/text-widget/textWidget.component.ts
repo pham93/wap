@@ -8,37 +8,4 @@ import { NgPortalAdapter, PortalManager } from 'portal';
   styleUrls: ['./textWidget.component.scss'],
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class TextWidgetComponent {
-  edit = false;
-
-  constructor(
-    @Inject(NgPortalAdapter.WIDGET_ID) private readonly id: string,
-    @Inject(NgPortalAdapter.PORTAL_MANAGER)
-    public readonly portalManager: PortalManager,
-    public readonly cdr: ChangeDetectorRef
-  ) {
-    this.edit = this.portalManager.isEditMode;
-    this.portalManager.onModeChange.subscribe((e) => {
-      this.edit = e;
-      this.cdr.markForCheck();
-    });
-  }
-
-  remove($event: MouseEvent) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    this.portalManager.deleteWidget(this.id);
-  }
-
-  toggleExpand($event: MouseEvent) {
-    $event.preventDefault();
-    $event.stopPropagation();
-    this.portalManager.toggleExpand(this.id);
-  }
-
-  selectLayer(val: any) {
-    this.portalManager.updateItem(this.id, {
-      layerIndex: val
-    });
-  }
-}
+export class TextWidgetComponent { }

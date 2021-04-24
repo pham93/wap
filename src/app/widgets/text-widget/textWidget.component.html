@@ -1,16 +1,10 @@
-  <nb-card>
-    <nb-card-header>
-      <button nbButton ghost status="danger"  (mousedown)="toggleExpand($event)">
-        <nb-icon icon="expand-outline"></nb-icon>
-      </button>
-      <button nbButton ghost status="danger" class="drag-handler">
-        <nb-icon icon="move-outline"></nb-icon>
-      </button>
-      <button nbButton ghost status="danger" (mousedown)="remove($event)">
-        <nb-icon icon="close-outline"></nb-icon>
-      </button>
-    </nb-card-header>
-    <nb-card-body>
-      this is a body
-    </nb-card-body>
-  </nb-card>
+<widget>
+  <widget-header>
+    widget title
+    <!-- include extra actions that interact with the view -->
+  </widget-header>
+  <widget-body>
+   <!-- Will include the view -->
+    this is a body
+  </widget-body>
+</widget>
