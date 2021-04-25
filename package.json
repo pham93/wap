@@ -51,12 +51,8 @@
   },
   "lint-staged": {
     "**/src/**/*.{ts,html,scss,css,js}": [
-      "yarn format", "git add"
+      "yarn format",
+      "yarn lint"
     ]
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged"
-    }
   }
 }
