@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 import { GridsterItemWidget, NgPortalAdapter } from 'portal';
@@ -8,13 +8,13 @@ import { WidgetMapperService } from 'src/app/widgetMapper.service';
   selector: 'main-page',
   templateUrl: './mainPage.component.html',
 })
-export class MainPageComponent {
+export class MainPageComponent implements OnInit, AfterViewInit {
   constructor(
     public readonly adapter: NgPortalAdapter,
     public readonly widgetMapperService: WidgetMapperService,
     private readonly theme: NbThemeService
   ) {
-    widgetMapperService.ngOnInit();
+    widgetMapperService.create();
   }
 
   editMode = true;

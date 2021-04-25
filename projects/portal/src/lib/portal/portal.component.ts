@@ -80,15 +80,15 @@ export class PortalComponent implements OnInit, OnDestroy {
   }
 
   @Output()
-  onDashboardChange = new EventEmitter<Array<GridsterItemWidget>>();
+  dashboardChange = new EventEmitter<Array<GridsterItemWidget>>();
 
   @Output()
-  onModeChange = new EventEmitter<boolean>();
+  modeChange = new EventEmitter<boolean>();
 
   constructor(private readonly cdr: ChangeDetectorRef) {
     this.mode$.subscribe((e) => {
       this._isEditMode = e;
-      this.onModeChange.emit(e);
+      this.modeChange.emit(e);
       this.setEdit(e);
       this.cdr.markForCheck();
     });
@@ -189,12 +189,12 @@ export class PortalComponent implements OnInit, OnDestroy {
 
   itemChange() {
     // item change
-    this.onDashboardChange.emit(this.dashboard);
+    this.dashboardChange.emit(this.dashboard);
   }
 
   itemResize() {
     // resize
-    this.onDashboardChange.emit(this.dashboard);
+    this.dashboardChange.emit(this.dashboard);
   }
 
   trackBy(_index: number, item: GridsterItem): number {

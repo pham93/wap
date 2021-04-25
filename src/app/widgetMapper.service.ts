@@ -1,4 +1,4 @@
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
 
 import { NgPortalAdapter } from 'portal';
 import { TextWidgetComponent } from './widgets/text-widget/textWidget.component';
@@ -6,14 +6,13 @@ import { TextWidgetComponent } from './widgets/text-widget/textWidget.component'
 @Injectable({
   providedIn: 'root',
 })
-export class WidgetMapperService implements OnInit {
+export class WidgetMapperService {
   static TEXT_WIDGET = 'TEXT_WIDGET';
   static EMPTY_WIDGET = 'EMPTY_WIDGET';
 
   constructor(private readonly ngPortalAdapter: NgPortalAdapter) {}
 
-  ngOnInit() {
-    console.log('this widget');
+  create() {
     this.ngPortalAdapter.setDefaultWidget(TextWidgetComponent);
     this.ngPortalAdapter
       .addWidgetMapping(WidgetMapperService.TEXT_WIDGET, TextWidgetComponent)

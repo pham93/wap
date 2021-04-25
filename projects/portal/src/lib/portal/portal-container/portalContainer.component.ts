@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, Input } from '@angular/core';
+import { AfterViewInit, Component, Input, OnDestroy } from '@angular/core';
 import { PortalAdapter } from '../../adapters';
 import { GridsterItemWidget } from '../portal.component';
 import { PortalManager } from '../portalManager';
@@ -11,7 +11,7 @@ import { PortalManager } from '../portalManager';
     id="{{ item.id }}"
   ></div>`,
 })
-export class PortalContainerComponent implements AfterViewInit {
+export class PortalContainerComponent implements AfterViewInit, OnDestroy {
   @Input()
   item!: GridsterItemWidget;
 

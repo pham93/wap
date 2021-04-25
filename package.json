@@ -5,6 +5,7 @@
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
+    "lint": "ng lint",
     "format:check": "prettier --check **/src/**/*.{ts,html,scss,css,js}",
     "format": "prettier --write **/src/**/*.{ts,html,scss,css,js}"
   },
@@ -47,5 +48,15 @@
     "ng-packagr": "^11.0.0",
     "prettier": "^2.2.1",
     "typescript": "~4.1.5"
+  },
+  "lint-staged": {
+    "**/src/**/*.{ts,html,scss,css,js}": [
+      "yarn format", "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
   }
 }

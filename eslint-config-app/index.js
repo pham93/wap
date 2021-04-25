@@ -21,7 +21,6 @@ module.exports = {
         "@angular-eslint/component-selector": [
           "error",
           {
-            prefix: "app",
             style: "kebab-case",
             type: "element"
           }
@@ -29,7 +28,6 @@ module.exports = {
         "@angular-eslint/directive-selector": [
           "error",
           {
-            prefix: "app",
             style: "camelCase",
             type: "attribute"
           }
