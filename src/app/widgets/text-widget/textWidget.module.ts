@@ -4,12 +4,7 @@ import { WidgetModule } from '../widget/widget.module';
 import { TextWidgetComponent } from './textWidget.component';
 
 @NgModule({
-  imports: [
-    SharedModule,
-    WidgetModule
-  ],
-  declarations: [
-    TextWidgetComponent
-  ],
+  imports: [SharedModule, WidgetModule],
+  declarations: [TextWidgetComponent],
 })
-export class TextWidgetModule { }
+export class TextWidgetModule {}

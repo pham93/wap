@@ -4,11 +4,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NebularModule } from './nebular.module';
 
 @NgModule({
-  exports: [
-    CommonModule,
-    FormsModule,
-    ReactiveFormsModule,
-    NebularModule,
-  ]
+  exports: [CommonModule, FormsModule, ReactiveFormsModule, NebularModule],
 })
-export class SharedModule { }
+export class SharedModule {}

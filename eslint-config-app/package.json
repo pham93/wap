@@ -1,0 +1,14 @@
+{
+  "name": "@wap/eslint-config-app",
+  "version": "1.0.0",
+  "description": "project wide eslint config",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "peerDependencies": {
+    "eslint": ">= 3"
+  }
+}

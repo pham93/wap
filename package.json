@@ -4,7 +4,9 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "format:check": "prettier --check **/src/**/*.{ts,html,scss,css,js}",
+    "format": "prettier --write **/src/**/*.{ts,html,scss,css,js}"
   },
   "private": true,
   "dependencies": {
@@ -38,8 +40,12 @@
     "@types/node": "^12.11.1",
     "@typescript-eslint/eslint-plugin": "4.16.1",
     "@typescript-eslint/parser": "4.16.1",
+    "@wap/eslint-config-app": "link:./eslint-config-app",
     "eslint": "^7.6.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "ng-packagr": "^11.0.0",
+    "prettier": "^2.2.1",
     "typescript": "~4.1.5"
   }
 }

@@ -1,7 +1,7 @@
-import { ChangeDetectorRef } from "@angular/core";
-import { Subject } from "rxjs";
+import { ChangeDetectorRef } from '@angular/core';
+import { Subject } from 'rxjs';
 
-import { GridsterItemWidget, PortalComponent } from "./portal.component";
+import { GridsterItemWidget, PortalComponent } from './portal.component';
 
 export class PortalManager {
   private _remove$ = new Subject<string>();
@@ -42,7 +42,7 @@ export class PortalManager {
     if (idx >= 0) {
       this.portal.dashboard[idx] = {
         ...this.portal.dashboard[idx],
-        ...item
+        ...item,
       };
       this.cdr.markForCheck();
     }

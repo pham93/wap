@@ -1,15 +1,15 @@
-import { AfterViewInit, Component, Input } from "@angular/core";
+import { AfterViewInit, Component, Input } from '@angular/core';
 import { PortalAdapter } from '../../adapters';
-import { GridsterItemWidget } from "../portal.component";
-import { PortalManager } from "../portalManager";
+import { GridsterItemWidget } from '../portal.component';
+import { PortalManager } from '../portalManager';
 
 @Component({
-  selector: "portal-container",
+  selector: 'portal-container',
   template: `<div
     class="gridster-item-content"
     style="height: 100%; width: 100%"
     id="{{ item.id }}"
-  ></div>`
+  ></div>`,
 })
 export class PortalContainerComponent implements AfterViewInit {
   @Input()

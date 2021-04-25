@@ -6,10 +6,9 @@ import { WidgetMapperService } from 'src/app/widgetMapper.service';
 
 @Component({
   selector: 'main-page',
-  templateUrl: './mainPage.component.html'
+  templateUrl: './mainPage.component.html',
 })
 export class MainPageComponent {
-
   constructor(
     public readonly adapter: NgPortalAdapter,
     public readonly widgetMapperService: WidgetMapperService,
