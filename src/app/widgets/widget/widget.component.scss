@@ -1,0 +1,14 @@
+$widget-margin: 10px;
+
+:host {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.widget-card {
+  height: calc(100% - #{$widget-margin});
+  width: calc(100% - #{$widget-margin});
+  margin: 0px;
+}

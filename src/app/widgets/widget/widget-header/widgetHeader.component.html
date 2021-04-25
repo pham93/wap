@@ -1,13 +1,12 @@
-<nb-card-header>
-  title-here
+<ng-container>
   <ng-content></ng-content>
-  <button nbButton ghost status="danger">
+  <button nbButton ghost status="danger"  (click)="toggleExpand($event)">
     <nb-icon icon="expand-outline"></nb-icon>
   </button>
   <button nbButton ghost status="danger" class="drag-handler">
     <nb-icon icon="move-outline"></nb-icon>
   </button>
-  <button nbButton ghost status="danger">
+  <button nbButton ghost status="danger" (mousedown)="remove($event)">
     <nb-icon icon="close-outline"></nb-icon>
   </button>
-</nb-card-header>
+</ng-container>
