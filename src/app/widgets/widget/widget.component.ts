@@ -4,6 +4,6 @@ import { ChangeDetectionStrategy, Component } from '@angular/core';
   selector: 'widget',
   templateUrl: './widget.component.html',
   styleUrls: ['./widget.component.scss'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WidgetComponent { }
+export class WidgetComponent {}

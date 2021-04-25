@@ -1,0 +1,5 @@
+{
+  "extends": [
+    "@wap/eslint-config-app"
+  ]
+}

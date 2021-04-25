@@ -4,7 +4,10 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build"
+    "build": "ng build",
+    "lint": "ng lint",
+    "format:check": "prettier --check **/src/**/*.{ts,html,scss,css,js}",
+    "format": "prettier --write **/src/**/*.{ts,html,scss,css,js}"
   },
   "private": true,
   "dependencies": {
@@ -28,10 +31,28 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1102.6",
+    "@angular-eslint/builder": "4.0.0",
+    "@angular-eslint/eslint-plugin": "4.0.0",
+    "@angular-eslint/eslint-plugin-template": "4.0.0",
+    "@angular-eslint/schematics": "4.0.0",
+    "@angular-eslint/template-parser": "4.0.0",
     "@angular/cli": "~11.2.6",
     "@angular/compiler-cli": "~11.2.7",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "4.16.1",
+    "@typescript-eslint/parser": "4.16.1",
+    "@wap/eslint-config-app": "link:./eslint-config-app",
+    "eslint": "^7.6.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^10.5.4",
     "ng-packagr": "^11.0.0",
+    "prettier": "^2.2.1",
     "typescript": "~4.1.5"
+  },
+  "lint-staged": {
+    "**/src/**/*.{ts,html,scss,css,js}": [
+      "yarn format",
+      "yarn lint"
+    ]
   }
 }

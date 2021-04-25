@@ -1,0 +1,30 @@
+{
+  "extends": [
+    "@wap/eslint-config-app"
+  ],
+  "overrides": [
+    {
+      "files": [
+        "*.ts"
+      ],
+      "rules": {
+        "@angular-eslint/component-selector": [
+          "error",
+          {
+            "prefix": "portal",
+            "style": "kebab-case",
+            "type": "element"
+          }
+        ],
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "prefix": "portal",
+            "style": "camelCase",
+            "type": "attribute"
+          }
+        ]
+      }
+    }
+  ]
+}

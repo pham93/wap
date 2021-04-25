@@ -2,7 +2,7 @@
   <gridster-item
     [style.background]="'transparent'"
     [item]="item"
-    *ngFor="let item of dashboard trackBy:trackBy"
+    *ngFor="let item of dashboard; trackBy: trackBy"
   >
     <!-- your content here -->
     <portal-container

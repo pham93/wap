@@ -6,19 +6,14 @@ import {
   OnInit,
   EventEmitter,
   ChangeDetectorRef,
-  OnDestroy
-} from "@angular/core";
-import {
-  DisplayGrid,
-  GridsterConfig,
-  GridsterItem,
-  GridType
-} from "angular-gridster2";
-import { Subject } from "rxjs";
+  OnDestroy,
+} from '@angular/core';
+import { DisplayGrid, GridsterConfig, GridsterItem, GridType } from 'angular-gridster2';
+import { Subject } from 'rxjs';
 
 import { PortalAdapter } from '../adapters';
-import { generateId } from "./generateId";
-import { PortalManager } from "./portalManager";
+import { generateId } from './generateId';
+import { PortalManager } from './portalManager';
 
 export interface GridsterItemWidget extends GridsterItem {
   id?: any;
@@ -27,9 +22,9 @@ export interface GridsterItemWidget extends GridsterItem {
 }
 
 @Component({
-  selector: "portal-core",
-  templateUrl: "./portal.component.html",
-  changeDetection: ChangeDetectionStrategy.OnPush
+  selector: 'portal-core',
+  templateUrl: './portal.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PortalComponent implements OnInit, OnDestroy {
   static EXPAND_LAYER_INDEX = 100;
@@ -37,9 +32,9 @@ export class PortalComponent implements OnInit, OnDestroy {
   private _config!: GridsterConfig;
 
   private _defaultConfig!: GridsterConfig;
-  
+
   private _dashboard: Array<GridsterItemWidget> = [];
-  
+
   private _isEditMode = true;
 
   public mode$ = new Subject<boolean>();
@@ -85,15 +80,15 @@ export class PortalComponent implements OnInit, OnDestroy {
   }
 
   @Output()
-  onDashboardChange = new EventEmitter<Array<GridsterItemWidget>>();
+  dashboardChange = new EventEmitter<Array<GridsterItemWidget>>();
 
   @Output()
-  onModeChange = new EventEmitter<boolean>();
+  modeChange = new EventEmitter<boolean>();
 
   constructor(private readonly cdr: ChangeDetectorRef) {
     this.mode$.subscribe((e) => {
       this._isEditMode = e;
-      this.onModeChange.emit(e);
+      this.modeChange.emit(e);
       this.setEdit(e);
       this.cdr.markForCheck();
     });
@@ -107,9 +102,7 @@ export class PortalComponent implements OnInit, OnDestroy {
   }
 
   private buildConfig(mode: boolean): GridsterConfig {
-    const [wboxes, hboxes, minItemCols, minItemRows] = [32, 18, 3, 1].map(
-      (e) => e * this.scale
-    );
+    const [wboxes, hboxes, minItemCols, minItemRows] = [32, 18, 3, 1].map((e) => e * this.scale);
     return {
       minCols: wboxes,
       maxCols: wboxes,
@@ -119,14 +112,14 @@ export class PortalComponent implements OnInit, OnDestroy {
       displayGrid: DisplayGrid.Always,
       resizable: {
         enabled: mode,
-        delayStart: 50
+        delayStart: 50,
       },
       mobileBreakpoint: 0,
 
       draggable: {
         enabled: mode,
         delayStart: 50,
-        ignoreContent: true
+        ignoreContent: true,
       },
       disableScrollHorizontal: true,
       disableScrollVertical: true,
@@ -143,7 +136,7 @@ export class PortalComponent implements OnInit, OnDestroy {
       emptyCellDragCallback: this.emptyCellAdd.bind(this),
       gridType: GridType.Fit,
       itemChangeCallback: this.itemChange.bind(this),
-      itemResizeCallback: this.itemResize.bind(this)
+      itemResizeCallback: this.itemResize.bind(this),
     };
   }
 
@@ -151,13 +144,17 @@ export class PortalComponent implements OnInit, OnDestroy {
     if (!this._config) {
       return;
     }
-    this._config = { ...this._config, resizable: {
-      ...this._config.resizable,
-      enabled: mode
-    }, draggable: {
-      ...this._config.draggable,
-      enabled: mode
-    } };
+    this._config = {
+      ...this._config,
+      resizable: {
+        ...this._config.resizable,
+        enabled: mode,
+      },
+      draggable: {
+        ...this._config.draggable,
+        enabled: mode,
+      },
+    };
 
     this._config.enableEmptyCellDrag = mode;
     this._config.displayGrid = mode ? DisplayGrid.Always : DisplayGrid.None;
@@ -186,18 +183,18 @@ export class PortalComponent implements OnInit, OnDestroy {
     this.dashboard.push({
       ..._item,
       id: generateId(),
-      widget: this.adapter.defaultWidgetName
+      widget: this.adapter.defaultWidgetName,
     });
   }
 
   itemChange() {
     // item change
-    this.onDashboardChange.emit(this.dashboard);
+    this.dashboardChange.emit(this.dashboard);
   }
 
   itemResize() {
     // resize
-    this.onDashboardChange.emit(this.dashboard);
+    this.dashboardChange.emit(this.dashboard);
   }
 
   trackBy(_index: number, item: GridsterItem): number {
@@ -218,9 +215,8 @@ export class PortalComponent implements OnInit, OnDestroy {
         isExpanded: true,
         prev: {
           ...this.dashboard[idx],
-          layerIndex:
-            this.dashboard[idx].layerIndex ?? this._config.defaultLayerIndex
-        }
+          layerIndex: this.dashboard[idx].layerIndex ?? this._config.defaultLayerIndex,
+        },
       };
     }
   }
@@ -230,7 +226,7 @@ export class PortalComponent implements OnInit, OnDestroy {
     const item = this.dashboard[idx];
     if (item?.prev) {
       this.dashboard[idx] = {
-        ...item.prev
+        ...item.prev,
       };
     }
   }
