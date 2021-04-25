@@ -1,4 +1,4 @@
-<nb-card class="widget-card">
+<nb-card *ngIf="exist" class="widget-card" [@fadeOutOnLeave] [@fadeInOnEnter]>
   <nb-card-header>
     <ng-content select="widget-header"></ng-content>
   </nb-card-header>

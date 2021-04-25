@@ -1789,6 +1789,13 @@ alphanum-sort@^1.0.0:
   resolved "https://registry.yarnpkg.com/alphanum-sort/-/alphanum-sort-1.0.2.tgz#97a1119649b211ad33691d9f9f486a8ec9fbe0a3"
   integrity sha1-l6ERlkmyEa0zaR2fn0hqjsn74KM=
 
+angular-animations@^0.11.0:
+  version "0.11.0"
+  resolved "https://registry.yarnpkg.com/angular-animations/-/angular-animations-0.11.0.tgz#1c36cad9e280c0d9b4ad5fe61a1ddeee517a6a6e"
+  integrity sha512-P2RuOe+T97bhgGDLtOYK9V45QA5y+kFUxoJfRAua8Ymo0bI5lWyw8oiVmBoEIZUU+nooYoJvQXgVKuZJA7/z3g==
+  dependencies:
+    tslib "^2.0.0"
+
 angular-gridster2@^11.1.5:
   version "11.1.5"
   resolved "https://registry.yarnpkg.com/angular-gridster2/-/angular-gridster2-11.1.5.tgz#885936af10da90ca432b61bad066a05e620c9f5a"
