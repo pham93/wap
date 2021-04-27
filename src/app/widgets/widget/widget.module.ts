@@ -7,6 +7,6 @@ import { WidgetComponent } from './widget.component';
 @NgModule({
   imports: [SharedModule],
   declarations: [WidgetComponent, WidgetBodyComponent, WidgetHeaderComponent],
-  exports: [WidgetComponent, WidgetBodyComponent, WidgetHeaderComponent],
+  exports: [WidgetComponent, WidgetBodyComponent, WidgetHeaderComponent, SharedModule],
 })
 export class WidgetModule {}

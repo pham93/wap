@@ -1,12 +1,13 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 import { NbThemeService } from '@nebular/theme';
 
 import { GridsterItemWidget, NgPortalAdapter } from 'portal';
-import { WidgetMapperService } from 'src/app/widgetMapper.service';
+import { WidgetMapperService } from 'src/app/services/widgetMapper.service';
 
 @Component({
   selector: 'main-page',
   templateUrl: './mainPage.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MainPageComponent implements OnInit, AfterViewInit {
   constructor(

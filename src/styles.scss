@@ -1,18 +1,18 @@
-// themes - our custom or/and out of the box themes
-@import 'themes';
+$grid-line-color: 1px solid rgba(255, 255, 255, 0.048);
 
-// framework component themes (styles tied to theme variables)
-@import '~@nebular/theme/styles/globals';
-
-// install the framework and custom global styles
-@include nb-install() {
-  // framework global styles
-  @include nb-theme-global();
+body[class^='nb-theme-'] {
+  --grid-line-color: #{$grid-line-color};
+  --layout-padding: 0.5rem;
 }
 
-html,
-body {
-  // margin: 0;
-  // height: 100%;
-  // width: 100%;
+.nb-theme-dark {
+  .gridster-row {
+    border-top: var(--grid-line-color);
+    border-bottom: var(--grid-line-color);
+  }
+
+  .gridster-column {
+    border-left: var(--grid-line-color);
+    border-right: var(--grid-line-color);
+  }
 }
