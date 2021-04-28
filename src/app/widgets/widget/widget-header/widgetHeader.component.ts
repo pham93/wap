@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input } from '@angular/core';
 import { NgPortalAdapter, PortalManager } from 'portal';
 
 enum MOUSEBUTTON {
@@ -18,7 +18,10 @@ export class WidgetHeaderComponent {
     @Inject(NgPortalAdapter.PORTAL_MANAGER)
     public readonly portalManager: PortalManager,
     public readonly cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    this.name = localStorage.getItem('widgetTitle' + this.id) || "";
+  }
+  name: string;
 
   remove($event: MouseEvent) {
     $event.preventDefault();
@@ -38,5 +41,10 @@ export class WidgetHeaderComponent {
     this.portalManager.updateItem(this.id, {
       layerIndex: val,
     });
+  }
+
+  textChange(val: any) {
+    this.name = val.target.value;
+    localStorage.setItem('widgetTitle' + this.id, this.name);
   }
 }

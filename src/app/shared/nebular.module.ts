@@ -7,6 +7,7 @@ import {
   NbIconModule,
   NbLayoutModule,
   NbThemeModule,
+  NbInputModule,
 } from '@nebular/theme';
 import { NbEvaIconsModule } from '@nebular/eva-icons';
 
@@ -19,6 +20,7 @@ import { NbEvaIconsModule } from '@nebular/eva-icons';
     NbCardModule,
     NbButtonModule,
     NbLayoutModule,
+    NbInputModule,
   ],
 })
 export class NebularModule {}
