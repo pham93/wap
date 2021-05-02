@@ -1,6 +1,14 @@
 <nb-layout>
   <nb-layout-header>
     <h1>Weather Access Presentation</h1>
+    <nb-select
+      placeholder="Select theme"
+      [selected]="(theme.onThemeChange() | async)?.name"
+      (selectedChange)="onThemeChange($event)"
+    >
+      <nb-option value="dark">Dark</nb-option>
+      <nb-option value="default">Default</nb-option>
+    </nb-select>
   </nb-layout-header>
   <nb-layout-column>
     <router-outlet></router-outlet>

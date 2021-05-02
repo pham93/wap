@@ -5,6 +5,12 @@ import { GridsterItemWidget } from '../../portal/portal.component';
 import { PortalManager } from '../../portal/portalManager';
 import { PortalAdapter } from '../';
 
+export interface WidgetOptionT {
+  name: string;
+  widget?: ComponentType<unknown>;
+  widgetLoader?: () => Promise<ComponentType<unknown>>;
+}
+
 @Injectable({
   providedIn: 'root',
 })
@@ -14,7 +20,7 @@ export class NgPortalAdapter implements PortalAdapter {
 
   private _hosts = new Map<string, DomPortalOutlet>();
 
-  private _widgetNameMapping = new Map<string, ComponentType<unknown>>();
+  private _widgetNameMapping = new Map<string, WidgetOptionT>();
 
   constructor(
     private readonly injector: Injector,
@@ -25,6 +31,46 @@ export class NgPortalAdapter implements PortalAdapter {
   defaultWidgetName = 'DEFAULT_WIDGET';
 
   create(item: GridsterItemWidget, portalManager: PortalManager) {
+    const widgetOption = this._widgetNameMapping?.get(item.widget);
+
+    if (!widgetOption || (!widgetOption.widget && !widgetOption.widgetLoader)) {
+      throw new Error(`no widget with ${item.widget}`);
+    }
+
+    if (widgetOption.widgetLoader) {
+      widgetOption.widgetLoader().then((e) => this.createComponent(item, portalManager, e));
+    }
+
+    if (widgetOption.widget) {
+      this.createComponent(item, portalManager, widgetOption.widget);
+    }
+  }
+
+  switch(item: GridsterItemWidget, portalManager: PortalManager) {
+    this.create(item, portalManager);
+  }
+
+  addWidgetMapping(widgetOption: WidgetOptionT) {
+    this._widgetNameMapping.set(widgetOption.name, widgetOption);
+    return this;
+  }
+
+  setDefaultWidget(component: Omit<WidgetOptionT, 'name'>) {
+    this._widgetNameMapping.set(this.defaultWidgetName, {
+      ...component,
+      name: this.defaultWidgetName,
+    });
+  }
+
+  destroy(item: GridsterItemWidget) {
+    this._hosts.get(item.id)?.dispose();
+  }
+
+  private createComponent(
+    item: GridsterItemWidget,
+    portalManager: PortalManager,
+    component: ComponentType<unknown>
+  ) {
     const el = document.getElementById(item.id);
     if (!el) {
       throw new Error('no element defined');
@@ -44,34 +90,10 @@ export class NgPortalAdapter implements PortalAdapter {
         { provide: NgPortalAdapter.PORTAL_MANAGER, useValue: portalManager },
       ],
     });
-
-    const component = this._widgetNameMapping?.get(item.widget);
-
-    if (!component) {
-      throw new Error(`no widget with ${item.widget}`);
-    }
-
     const componentPortal = new ComponentPortal(component, null, componentInject);
 
     portalHost.attach(componentPortal);
 
     this._hosts.set(item.id, portalHost);
-  }
-
-  switch(item: GridsterItemWidget, portalManager: PortalManager) {
-    this.create(item, portalManager);
-  }
-
-  addWidgetMapping(id: string, component: ComponentType<unknown>) {
-    this._widgetNameMapping.set(id, component);
-    return this;
-  }
-
-  setDefaultWidget(component: ComponentType<unknown>) {
-    this._widgetNameMapping.set(this.defaultWidgetName, component);
-  }
-
-  destroy(item: GridsterItemWidget) {
-    this._hosts.get(item.id)?.dispose();
   }
 }

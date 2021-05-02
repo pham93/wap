@@ -1,18 +1,19 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
-import { NbThemeService } from '@nebular/theme';
+import { AfterViewInit, ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
 
 import { GridsterItemWidget, NgPortalAdapter } from 'portal';
-import { WidgetMapperService } from 'src/app/widgetMapper.service';
+import { ThemeService } from 'src/app/services/theme.service';
+import { WidgetMapperService } from 'src/app/services/widgetMapper.service';
 
 @Component({
   selector: 'main-page',
   templateUrl: './mainPage.component.html',
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class MainPageComponent implements OnInit, AfterViewInit {
+export class MainPageComponent implements OnInit {
   constructor(
     public readonly adapter: NgPortalAdapter,
     public readonly widgetMapperService: WidgetMapperService,
-    private readonly theme: NbThemeService
+    private readonly theme: ThemeService
   ) {
     widgetMapperService.create();
   }
@@ -23,10 +24,6 @@ export class MainPageComponent implements OnInit, AfterViewInit {
 
   ngOnInit() {
     this.dashboard = JSON.parse(localStorage.getItem('myDashboard') || '[]');
-  }
-
-  ngAfterViewInit() {
-    this.theme.changeTheme('dark');
   }
 
   change(a: any) {

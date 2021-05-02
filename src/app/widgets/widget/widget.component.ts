@@ -19,7 +19,7 @@ import { WidgetHeaderComponent } from './widget-header/widgetHeader.component';
   ],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WidgetComponent {
+export class WidgetComponent implements AfterContentInit {
   public exist = true;
 
   public static ANIMATION_TIME = 250;
