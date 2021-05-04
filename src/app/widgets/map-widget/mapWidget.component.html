@@ -1,0 +1,11 @@
+<widget>
+  <widget-header> Map </widget-header>
+  <widget-body>
+    <div
+      #mapContainer
+      leaflet
+      [leafletOptions]="options"
+      (leafletMapReady)="onMapReady($event, mapContainer)"
+    ></div>
+  </widget-body>
+</widget>

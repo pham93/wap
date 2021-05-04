@@ -1,0 +1,11 @@
+@import '~leaflet/dist/leaflet.css';
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 997;
+}
+
+.leaflet-container {
+  width: 100%;
+  height: 100%;
+}
