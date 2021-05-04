@@ -1,5 +1,10 @@
 <ng-container>
-  <input nbInput value="{{name}}" (change)="textChange($event)" placeholder="Enter some text here">
+  <input
+    nbInput
+    value="{{ name }}"
+    (change)="textChange($event)"
+    placeholder="Enter some text here"
+  />
   <button nbButton ghost status="danger" (click)="toggleExpand($event)">
     <nb-icon icon="expand-outline"></nb-icon>
   </button>

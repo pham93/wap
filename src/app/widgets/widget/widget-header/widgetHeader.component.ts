@@ -1,4 +1,10 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject, Input } from '@angular/core';
+import {
+  ChangeDetectionStrategy,
+  ChangeDetectorRef,
+  Component,
+  Inject,
+  Input,
+} from '@angular/core';
 import { NgPortalAdapter, PortalManager } from 'portal';
 
 enum MOUSEBUTTON {
@@ -19,7 +25,7 @@ export class WidgetHeaderComponent {
     public readonly portalManager: PortalManager,
     public readonly cdr: ChangeDetectorRef
   ) {
-    this.name = localStorage.getItem('widgetTitle' + this.id) || "";
+    this.name = localStorage.getItem('widgetTitle' + this.id) || '';
   }
   name: string;
 
