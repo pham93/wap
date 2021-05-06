@@ -3,6 +3,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NbLayoutModule, NbSelectModule, NbThemeModule } from '@nebular/theme';
 import { NgxsModule } from '@ngxs/store';
+import { FormBuilderModule } from 'projects/form-builder/src/public-api';
 import { environment } from 'src/environments/environment';
 
 import { AppComponent } from './app.component';

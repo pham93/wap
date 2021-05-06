@@ -15,6 +15,10 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "form-builder": [
+        "dist/form-builder/form-builder",
+        "dist/form-builder"
+      ],
       "portal": [
         "dist/portal/portal",
         "dist/portal"

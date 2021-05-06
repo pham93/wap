@@ -1,0 +1,8 @@
+<div class="dynamic-field form-select" [formGroup]="form">
+  <label>{{ field.label }}</label>
+  <select [formControlName]="field.key">
+    <option *ngFor="let option of field.data?.options">
+      {{ option.value }}
+    </option>
+  </select>
+</div>
