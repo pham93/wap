@@ -1,12 +1,11 @@
 import {
   ChangeDetectionStrategy,
   Component,
-  ElementRef,
   OnDestroy,
-  ViewChild,
   ViewEncapsulation,
 } from '@angular/core';
 import * as L from 'leaflet';
+import { Options } from 'ngx-google-places-autocomplete/objects/options/options';
 import ResizeObserver from 'resize-observer-polyfill';
 
 @Component({
@@ -17,7 +16,8 @@ import ResizeObserver from 'resize-observer-polyfill';
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MapWidgetComponent implements OnDestroy {
-  options = {
+  formattedaddress : String = " ";
+  mapOptions = {
     layers: [
       L.tileLayer('https://tiles.stadiamaps.com/tiles/alidade_smooth_dark/{z}/{x}/{y}{r}.png', {
         maxZoom: 20,
@@ -28,8 +28,27 @@ export class MapWidgetComponent implements OnDestroy {
     zoom: 2,
     center: L.latLng({ lat: 38.991709, lng: -76.886109 }),
   };
+  cityOptions: any;
+  constructor() {
+    this.cityOptions = {
+      bounds: new google.maps.LatLngBounds(),
+      types: ['city'],
+      fields: ["address_component"],
+      strictBounds: false,
+      componentRestrictions: {
+        country:"UA"
+      },
+      origin: new google.maps.LatLng(0, 0)
+    }
+  }
+  
 
   resizeObserver!: ResizeObserver;
+
+    
+  public handleAddressChange(address: any) {
+    this.formattedaddress = address.formatted_address;
+  }
 
   onMapReady(map: L.Map, mapContainer: HTMLDivElement) {
     this.resizeObserver = new ResizeObserver(() => {

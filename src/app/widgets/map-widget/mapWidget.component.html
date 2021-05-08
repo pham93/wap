@@ -1,10 +1,15 @@
 <widget>
-  <widget-header> Map </widget-header>
+  <widget-header>
+    <div>
+      <script aysnc defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBigj60Zwx3OXXGgxhZX6otosD0-NSicXc"></script>
+      <input ngx-google-places-autocomplete [options]="cityOptions" (onAddressChange)="handleAddressChange($event)"/> {{ formattedaddress }}
+    </div>
+  </widget-header>
   <widget-body>
     <div
       #mapContainer
       leaflet
-      [leafletOptions]="options"
+      [leafletOptions]="mapOptions"
       (leafletMapReady)="onMapReady($event, mapContainer)"
     ></div>
   </widget-body>
