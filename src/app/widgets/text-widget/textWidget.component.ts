@@ -1,6 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject } from '@angular/core';
-
-import { NgPortalAdapter, PortalManager } from 'portal';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 
 @Component({
   selector: 'portal-ui-text-widget',

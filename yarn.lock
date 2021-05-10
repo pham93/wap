@@ -1543,6 +1543,14 @@
   version "0.0.0"
   uid ""
 
+"@wap/form-builder@link:./dist/form-builder":
+  version "0.0.0"
+  uid ""
+
+"@wap/portal@link:./dist/portal":
+  version "0.0.0"
+  uid ""
+
 "@webassemblyjs/ast@1.9.0":
   version "1.9.0"
   resolved "https://registry.yarnpkg.com/@webassemblyjs/ast/-/ast-1.9.0.tgz#bd850604b4042459a5a41cd7d338cbed695ed964"
@@ -6800,10 +6808,6 @@ pnp-webpack-plugin@1.6.4:
   integrity sha512-7Wjy+9E3WwLOEL30D+m8TSTF7qJJUJLONBnwQp0518siuMxUQUbgZwssaFX+QKlZkjHZcw/IpZCt/H0srrntSg==
   dependencies:
     ts-pnp "^1.1.6"
-
-"portal@link:./dist/portal":
-  version "0.0.0"
-  uid ""
 
 portfinder@^1.0.26:
   version "1.0.28"

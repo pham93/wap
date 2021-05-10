@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
-import { PortalModule } from 'portal';
-import { NebularModule } from 'src/app/shared/nebular.module';
+import { PortalModule } from '@wap/portal';
 
 import { SharedModule } from 'src/app/shared/shared.module';
 import { MainPageComponent } from './mainPage.component';

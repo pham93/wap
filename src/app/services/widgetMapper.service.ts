@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-import { NgPortalAdapter } from 'portal';
+import { NgPortalAdapter } from '@wap/portal';
 
 @Injectable({
   providedIn: 'root',

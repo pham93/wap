@@ -5,6 +5,7 @@
     (change)="textChange($event)"
     placeholder="Enter some text here"
   />
+  <ng-content></ng-content>
   <button nbButton ghost status="danger" (click)="toggleExpand($event)">
     <nb-icon icon="expand-outline"></nb-icon>
   </button>

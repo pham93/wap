@@ -1,11 +1,5 @@
-import {
-  ChangeDetectionStrategy,
-  ChangeDetectorRef,
-  Component,
-  Inject,
-  Input,
-} from '@angular/core';
-import { NgPortalAdapter, PortalManager } from 'portal';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Inject } from '@angular/core';
+import { NgPortalAdapter, PortalManager } from '@wap/portal';
 
 enum MOUSEBUTTON {
   LEFT = 0,
